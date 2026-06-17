@@ -240,18 +240,24 @@ window.onload=function(){
 
 // ---- LOAD DATA ----
 function loadBookings(){
-  // ใช้ script tag เพื่อหลีกเลี่ยง CORS
+  // ใช้ script tag (JSONP) เพื่อหลีกเลี่ยง CORS
+  var old = document.getElementById('jsonp_script');
+  if(old) old.parentNode.removeChild(old);
+
   var script = document.createElement('script');
-  script.src = APPS_SCRIPT_URL + '?action=list&callback=receiveBookings';
+  script.id = 'jsonp_script';
+  script.src = APPS_SCRIPT_URL + '?action=list&callback=receiveBookings&t=' + Date.now();
   document.head.appendChild(script);
-  // timeout fallback ถ้าโหลดไม่ได้
+
+  // fallback 6 วินาที
   setTimeout(function(){
     if(bookings.length===0){
       bookings=getDemoData();
       updateSummary();
       renderTable();
+      showToast("⚠️ โหลดข้อมูลจริงไม่ได้ แสดงข้อมูลตัวอย่าง");
     }
-  }, 5000);
+  }, 6000);
 }
 
 function getDemoData(){
