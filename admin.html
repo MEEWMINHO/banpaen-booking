@@ -240,19 +240,18 @@ window.onload=function(){
 
 // ---- LOAD DATA ----
 function loadBookings(){
-  fetch(APPS_SCRIPT_URL+"?action=list")
-    .then(function(r){return r.json();})
-    .then(function(data){
-      bookings=data.bookings||[];
-      updateSummary();
-      renderTable();
-    })
-    .catch(function(){
-      // Demo data เมื่อยังไม่ได้ต่อ API
+  // ใช้ script tag เพื่อหลีกเลี่ยง CORS
+  var script = document.createElement('script');
+  script.src = APPS_SCRIPT_URL + '?action=list&callback=receiveBookings';
+  document.head.appendChild(script);
+  // timeout fallback ถ้าโหลดไม่ได้
+  setTimeout(function(){
+    if(bookings.length===0){
       bookings=getDemoData();
       updateSummary();
       renderTable();
-    });
+    }
+  }, 5000);
 }
 
 function getDemoData(){
@@ -343,16 +342,34 @@ function confirmAction(status){
 
 function updateStatus(id,status){
   var label={approved:"อนุมัติแล้ว",rejected:"ปฏิเสธ"};
-  fetch(APPS_SCRIPT_URL,{method:"POST",body:JSON.stringify({action:"update",id:id,status:status})})
-    .then(function(r){return r.json();})
-    .catch(function(){return {status:"ok"};}) // Demo fallback
-    .then(function(){
+  // ใช้ form POST เพื่อหลีกเลี่ยง CORS
+  var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = APPS_SCRIPT_URL;
+  form.target = 'hidden_iframe';
+  var input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'payload';
+  input.value = JSON.stringify({action:"update",id:id,status:status});
+  form.appendChild(input);
+  document.body.appendChild(form);
+  form.submit();
+  document.body.removeChild(form);
+  Promise.resolve({status:"ok"}).then(function(){
       var b=bookings.find(function(x){return x.id===id;});
       if(b)b.status=status;
       updateSummary();
       renderTable();
       showToast((status==="approved"?"✅ อนุมัติ":"❌ ปฏิเสธ")+" คำขอ "+id+" เรียบร้อยแล้ว");
     });
+}
+
+
+// JSONP callback
+function receiveBookings(data){
+  bookings = data.bookings || [];
+  updateSummary();
+  renderTable();
 }
 
 function showToast(msg){
@@ -362,5 +379,6 @@ function showToast(msg){
   setTimeout(function(){t.classList.remove("show");},3000);
 }
 </script>
+<iframe name="hidden_iframe" style="display:none"></iframe>
 </body>
 </html>
