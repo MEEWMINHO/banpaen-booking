@@ -371,11 +371,16 @@ function updateStatus(id,status){
 }
 
 
-// JSONP callback
+// JSONP callbacks
 function receiveBookings(data){
   bookings = data.bookings || [];
   updateSummary();
   renderTable();
+}
+
+function updateCallback(data){
+  // โหลดข้อมูลใหม่หลังอัปเดต
+  loadBookings();
 }
 
 function showToast(msg){
