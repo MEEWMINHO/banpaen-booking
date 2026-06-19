@@ -353,14 +353,23 @@ document.getElementById("fDate").value = y + "-" + mo + "-" + d;
 
 // โหลดข้อมูลจาก Apps Script
 function loadBookings() {
-  fetch(APPS_SCRIPT_URL + "?action=list")
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      allBookings = (data.bookings || []).filter(function(b) { return b.status !== "rejected"; });
-      updateStats();
-      renderCal();
-    })
-    .catch(function() { renderCal(); });
+  // render ปฏิทินก่อนเสมอ ไม่รอข้อมูล
+  renderCal();
+  updateStats();
+
+  // ใช้ JSONP เพื่อหลีกเลี่ยง CORS
+  var old = document.getElementById("jsonp_cal");
+  if (old) old.parentNode.removeChild(old);
+  var s = document.createElement("script");
+  s.id = "jsonp_cal";
+  s.src = APPS_SCRIPT_URL + "?action=list&callback=receiveBookings&t=" + Date.now();
+  document.head.appendChild(s);
+}
+
+function receiveBookings(data) {
+  allBookings = (data.bookings || []).filter(function(b) { return b.status !== "rejected"; });
+  updateStats();
+  renderCal();
 }
 
 function updateStats() {
