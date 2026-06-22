@@ -6,171 +6,139 @@
 <title>ระบบจองห้องประชุมออนไลน์ - สำนักปลัดเทศบาลตำบลบ้านแป้น</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --walnut:#4A3728;--sand:#EAE3D5;--cream:#F5F0E8;
-  --terr:#C2622A;--terrlt:#F0DDD3;
-  --sage:#3A6B40;--sagelt:#D8EAD9;
-  --bark:#9C8370;--dust:#B8AC9C;--linen:#DDD5C4;
-  --gold:#B08940;--goldlt:#FEF3CD;
-  --red:#C0392B;--redlt:#FADBD8;
-}
+:root{--walnut:#4A3728;--sand:#EAE3D5;--cream:#F5F0E8;--terr:#C2622A;--terrlt:#F0DDD3;--sage:#3A6B40;--sagelt:#D8EAD9;--bark:#9C8370;--dust:#B8AC9C;--linen:#DDD5C4;--gold:#B08940;--goldlt:#FEF3CD;--red:#C0392B;--redlt:#FADBD8;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-size:15px;line-height:1.6;}
-
+body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-size:15px;}
 .site-header{background:var(--cream);border-bottom:1px solid var(--linen);}
-.header-inner{max-width:960px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:14px;}
+.header-inner{max-width:960px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px;}
 .logo-wrap{width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--linen);background:#fff;}
 .logo-wrap img{width:100%;height:100%;object-fit:cover;}
 .header-text{flex:1;}
 .header-org{font-size:11px;color:var(--dust);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px;}
 .header-h1{font-size:17px;font-weight:600;color:var(--walnut);line-height:1.3;}
 .header-sub{font-size:12px;color:var(--bark);}
-.header-date{font-size:12px;color:var(--bark);text-align:right;flex-shrink:0;}
-
 .action-bar{background:var(--walnut);border-bottom:3px solid var(--terr);}
-.action-inner{max-width:960px;margin:0 auto;padding:12px 24px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.act-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;text-decoration:none;transition:background .2s;}
-.act-btn:hover{background:rgba(255,255,255,.15);}
+.action-inner{max-width:960px;margin:0 auto;padding:12px 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.act-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;text-decoration:none;}
 .act-btn.primary{background:var(--terr);border-color:var(--terr);}
-.act-btn.primary:hover{background:#A3501F;}
-.act-icon{font-size:20px;flex-shrink:0;}
+.act-icon{font-size:20px;}
 .act-title{font-size:13px;font-weight:600;color:#fff;display:block;}
 .act-sub{font-size:11px;color:rgba(255,255,255,.6);display:block;}
-
-.main{max-width:960px;margin:0 auto;padding:20px 24px;}
+.main{max-width:960px;margin:0 auto;padding:20px;}
 .sec-lbl{font-size:11px;font-weight:600;color:var(--bark);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px;}
-
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
 .stat-card{background:var(--cream);border:1px solid var(--linen);border-radius:12px;padding:12px 14px;}
 .stat-num{font-size:22px;font-weight:600;color:var(--walnut);}
 .stat-lbl{font-size:11px;color:var(--bark);margin-top:2px;}
-
-.rooms-section{margin-bottom:24px;}
 .room-card{background:var(--cream);border:1px solid var(--linen);border-radius:14px;padding:13px 16px;margin-bottom:8px;}
 .room-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
 .room-info{display:flex;align-items:center;gap:10px;}
-.room-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.room-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
 .room-name{font-size:13px;font-weight:600;color:var(--walnut);}
-.room-cap{font-size:11px;color:var(--bark);margin-top:1px;}
+.room-cap{font-size:11px;color:var(--bark);}
 .badge{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:500;}
 .badge-free{background:var(--sagelt);color:var(--sage);}
 .badge-busy{background:var(--redlt);color:var(--red);}
 .slots{display:flex;gap:5px;flex-wrap:wrap;}
 .slot{font-size:11px;padding:4px 8px;border-radius:7px;border:1px solid var(--linen);color:var(--bark);background:var(--sand);}
 .slot.free{background:var(--sagelt);color:var(--sage);border-color:#96C99A;cursor:pointer;}
-.slot.free:hover{background:#BDD9BF;}
 .slot.busy{background:var(--redlt);color:var(--red);border-color:#F1948A;}
-.slot.half{background:var(--goldlt);color:var(--gold);border-color:#E8B84B;}
-
 /* CALENDAR */
-.cal-section{margin-bottom:24px;}
+.cal-section{margin-bottom:20px;}
 .cal-card{background:var(--cream);border:1px solid var(--linen);border-radius:14px;overflow:hidden;}
 .cal-head{background:var(--walnut);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
-.cal-month{font-size:14px;font-weight:600;color:#fff;}
-.cal-nav{width:28px;height:28px;border:1px solid rgba(255,255,255,.2);border-radius:7px;background:transparent;color:#fff;cursor:pointer;font-size:14px;}
-.cal-nav:hover{background:rgba(255,255,255,.1);}
-.cal-grid{padding:10px 14px 4px;}
+.cal-month-txt{font-size:14px;font-weight:600;color:#fff;}
+.cal-nav-btn{width:28px;height:28px;border:1px solid rgba(255,255,255,.2);border-radius:7px;background:transparent;color:#fff;cursor:pointer;font-size:16px;line-height:1;}
+.cal-nav-btn:hover{background:rgba(255,255,255,.15);}
+.cal-tip{padding:8px 14px 4px;font-size:11px;color:var(--bark);font-style:italic;}
+.cal-body{padding:10px 14px 4px;}
 .cal-dow{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px;}
-.cal-dow span{font-size:11px;color:var(--bark);text-align:center;font-weight:500;padding:2px 0;}
-.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
-.cd{font-size:12px;text-align:center;padding:7px 2px;border-radius:7px;cursor:pointer;color:#3A2C1E;position:relative;transition:all .15s;}
-.cd:hover{background:var(--sand);transform:scale(1.1);}
-.cd.empty{color:transparent;pointer-events:none;}
-.cd.today{background:var(--terr);color:#fff;font-weight:600;}
-.cd.today:hover{background:#A3501F;}
-.cd.booked{background:var(--redlt);color:var(--red);}
-.cd.partial{background:var(--goldlt);color:var(--gold);}
-.cd.cfree{background:var(--sagelt);color:var(--sage);}
-.cd.selected{outline:2px solid var(--walnut);outline-offset:1px;}
+.cal-dow-cell{font-size:11px;color:var(--bark);text-align:center;font-weight:500;padding:2px 0;}
+.cal-grid-days{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-day{font-size:12px;text-align:center;padding:8px 2px;border-radius:7px;cursor:pointer;color:#3A2C1E;transition:all .15s;}
+.cal-day:hover{opacity:.8;}
+.cal-day.empty{color:transparent;pointer-events:none;background:transparent !important;}
+.cal-day.today{background:var(--terr);color:#fff;font-weight:600;}
+.cal-day.has-booking{background:var(--redlt);color:var(--red);}
+.cal-day.has-partial{background:var(--goldlt);color:var(--gold);}
+.cal-day.is-free{background:var(--sagelt);color:var(--sage);}
+.cal-day.selected{outline:2px solid var(--walnut);outline-offset:1px;}
 .cal-legend{display:flex;gap:12px;padding:10px 14px 14px;flex-wrap:wrap;}
 .leg{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--bark);}
 .leg-dot{width:9px;height:9px;border-radius:3px;}
-.cal-tip{padding:0 14px 6px;font-size:11px;color:var(--bark);font-style:italic;}
-
-/* DAY DETAIL PANEL */
-.day-panel{background:var(--cream);border:1px solid var(--linen);border-radius:14px;margin-bottom:24px;overflow:hidden;display:none;}
-.day-panel.show{display:block;}
+/* DAY PANEL */
+.day-panel{display:none;background:var(--cream);border:1px solid var(--linen);border-radius:14px;margin-bottom:20px;overflow:hidden;}
+.day-panel.active{display:block;}
 .day-panel-head{background:var(--walnut);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
 .day-panel-title{font-size:14px;font-weight:600;color:#fff;}
-.day-panel-close{width:26px;height:26px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;}
-.day-panel-body{padding:14px 16px;}
-.day-no-booking{text-align:center;padding:24px;color:var(--bark);font-size:13px;}
-.booking-item{background:var(--sand);border:1px solid var(--linen);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;}
-.booking-item:last-child{margin-bottom:0;}
-.b-order{width:28px;height:28px;border-radius:50%;background:var(--walnut);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.b-order.first{background:var(--terr);}
-.b-body{flex:1;}
-.b-name{font-size:13px;font-weight:600;color:var(--walnut);}
-.b-dept{font-size:12px;color:var(--bark);margin-top:1px;}
-.b-room{font-size:12px;color:var(--walnut);margin-top:4px;font-weight:500;}
-.b-time{font-size:12px;color:var(--bark);}
-.b-note{font-size:11px;color:var(--dust);margin-top:3px;font-style:italic;}
-.b-status{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500;margin-top:4px;display:inline-block;}
-.bs-pending{background:var(--goldlt);color:var(--gold);}
-.bs-approved{background:var(--sagelt);color:var(--sage);}
-.bs-rejected{background:var(--redlt);color:var(--red);}
+.day-close{background:transparent;border:1px solid rgba(255,255,255,.25);border-radius:6px;color:#fff;width:26px;height:26px;cursor:pointer;font-size:14px;}
+.day-body{padding:14px 16px;}
+.no-booking{text-align:center;padding:20px;color:var(--bark);font-size:13px;}
 .first-note{background:var(--terrlt);border:1px solid #D9906A;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:12px;color:#7A3010;}
-
+.b-item{background:var(--sand);border:1px solid var(--linen);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;}
+.b-num{width:28px;height:28px;border-radius:50%;background:var(--walnut);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.b-num.first{background:var(--terr);}
+.b-info{flex:1;}
+.b-name{font-size:13px;font-weight:600;color:var(--walnut);}
+.b-dept{font-size:12px;color:var(--bark);}
+.b-room{font-size:12px;color:var(--walnut);font-weight:500;margin-top:3px;}
+.b-time{font-size:12px;color:var(--bark);}
+.b-note{font-size:11px;color:var(--dust);font-style:italic;margin-top:2px;}
+.b-ts{font-size:11px;color:var(--dust);margin-top:2px;}
+.b-status{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500;display:inline-block;margin-top:3px;}
+.s-pending{background:var(--goldlt);color:var(--gold);}
+.s-approved{background:var(--sagelt);color:var(--sage);}
 /* FORM */
-.form-section{margin-bottom:28px;}
-.form-card{background:var(--cream);border:1px solid var(--linen);border-radius:14px;padding:20px 22px;}
-.form-title{font-size:15px;font-weight:600;color:var(--walnut);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--linen);}
-.fg{margin-bottom:14px;}
+.form-card{background:var(--cream);border:1px solid var(--linen);border-radius:14px;padding:20px 22px;margin-bottom:24px;}
+.form-title{font-size:15px;font-weight:600;color:var(--walnut);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--linen);}
+.fg{margin-bottom:13px;}
 .fl{font-size:11px;font-weight:500;color:var(--bark);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;display:block;}
-.fi{width:100%;padding:9px 13px;font-size:14px;font-family:"Sarabun",sans-serif;border-radius:9px;border:1px solid var(--linen);background:#fff;color:#3A2C1E;transition:border-color .2s;}
+.fi{width:100%;padding:9px 13px;font-size:14px;font-family:"Sarabun",sans-serif;border-radius:9px;border:1px solid var(--linen);background:#fff;color:#3A2C1E;}
 .fi:focus{outline:none;border-color:var(--walnut);}
 .fi::placeholder{color:var(--dust);}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.room-sel-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px;}
-.room-sel{border:1.5px solid var(--linen);border-radius:9px;padding:9px 10px;cursor:pointer;background:#fff;transition:all .2s;text-align:center;}
-.room-sel:hover{border-color:var(--walnut);background:var(--sand);}
+.room-sel-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:13px;}
+.room-sel{border:1.5px solid var(--linen);border-radius:9px;padding:9px 10px;cursor:pointer;background:#fff;text-align:center;}
 .room-sel.active{background:var(--walnut);border-color:var(--walnut);}
 .rs-name{font-size:11px;font-weight:600;color:var(--walnut);}
 .room-sel.active .rs-name{color:#fff;}
 .rs-cap{font-size:10px;color:var(--bark);margin-top:2px;}
 .room-sel.active .rs-cap{color:rgba(255,255,255,.6);}
-.submit-btn{width:100%;padding:12px;font-size:14px;font-weight:600;font-family:"Sarabun",sans-serif;background:var(--terr);color:#fff;border:none;border-radius:11px;cursor:pointer;margin-top:4px;}
+.submit-btn{width:100%;padding:12px;font-size:14px;font-weight:600;font-family:"Sarabun",sans-serif;background:var(--terr);color:#fff;border:none;border-radius:11px;cursor:pointer;}
 .submit-btn:hover{background:#A3501F;}
 .submit-btn:disabled{background:var(--bark);cursor:not-allowed;}
-.msg{display:none;padding:11px 14px;border-radius:9px;margin-bottom:12px;font-size:13px;}
+.msg{display:none;padding:10px 13px;border-radius:9px;margin-bottom:12px;font-size:13px;}
 .msg.success{background:var(--sagelt);color:var(--sage);border:1px solid #96C99A;}
 .msg.error{background:var(--redlt);color:var(--red);border:1px solid #F1948A;}
 .spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:5px;}
 @keyframes spin{to{transform:rotate(360deg)}}
-
 .footer{background:var(--walnut);padding:12px 20px;text-align:center;font-size:12px;color:var(--dust);}
-@media(max-width:600px){
-  .action-inner,.stats-row,.row2,.room-sel-row{grid-template-columns:1fr 1fr;}
-  .main{padding:14px;}
-  .header-date{display:none;}
-}
+@media(max-width:600px){.action-inner,.stats-row,.row2,.room-sel-row{grid-template-columns:1fr 1fr;}.main{padding:14px;}}
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="logo-wrap">
-      <img src="data:image/jpeg;base64,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" alt="โลโก้เทศบาลตำบลบ้านแป้น">
-    </div>
+    <div class="logo-wrap"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAB4AHgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7LooooAKKKyda1220+RraJDd3oTf5CMBsX+/Ix4jT3PXsDTjFydkKUlFXZrVl3viHR7S4NrJepJcg48iBTNL/AN8IC36V5F4k+JR1PVJNE0O2u/FupjhrLTC0VjD/ANdJeGf8Sqn0qSx8F/E3WrTOu+KrLwjpp5NjosKqVB7M/Az+ddX1eNP+LK35/wBetjm9vOppSjf+v62uelXXikQpvGjagq9muHhtgfwlkVv0rOPjtA2PsdkfYaza7vy3/wBa8n0nwR8NoJL1vGN1qUgW/ktbS4uNYadbxUALOBDjbjPzZ4XIya6e4+HvwVtotQM2jRoNPniguWLz5RpduzB3cg7hyOKhV8Fbd/db/wBuOmeX5inbl+7VdOtu7S9XY9AtfFqyqHfRNU2d5LcRXSj/AL8uzfpV/S/Emialcm1tNRhN0OtvJmOYfWNwG/SvJ/8AhWPwputdl0fRNZvNN1aBmUx2epOGVlGWA3ZBI7gcjvVHxVoXirwuLK3HjbSvEdldF/s1j4kiU79i7jtn5CkL0OV+tV/sk9p29dP8/wBDH2WOhJRdNvrpvbvstPvPfKK8N8O/EO90fUY9I1SO60G+IGzTdbmMlrOOP9Rd8sme2/evbIr1rQPENlq7SWwWS01CBQZ7K4AEsYPRuCQyHs6kqfWprYadLV7CpYmFTRbmxRSZoJrmOgDRTetFAD6KKxvFWqvp9osNs8aXlxuETSfciVRl5W/2UXn3OB3qoxcnZEykoq7M3xt4qt9ItboLexWkdqm69vXAK2wIyFUH70rDovQDk8YB8m0fSte+KUTTzSXPhvwIrmU5kK3Wp+ssjnnBA+8e3TA5p3hrSP8AhaviY3c/nL4F0adhDHKfm1O4By8sh/iGeT6njoK6GTx/c3t0n9lR/YbKGbFhDcxpHBqsBXb5ZYnMchwxjztDDHFb4jExwa5I/F37f8H/AIZa73l+W1szk5/ZX3f0/wAtXotNfR9R8P8Ahknwr4X0STTbZk8i01X7OGtHuni3xjOd0mQR83QnjOa4jS7zxD4v0a60Wa7k1e31BVkjjuLhZpI54ZA5juBGirAsqqwCHIGBz1ro4bvStL8H63ZeJNNlsPD7TiWysr+YRyWkWAxLspJjXzAxQAlsdBjp4X8Qf2jpbm8m03wRpqXZlkwbloysUjdMrGOZD7uWz7Vy0cBXxnvN2X9f18z1qmbYTLG4UYc01bX01T9b7pOyto2mz3nR9LtIoPEdkLCx0Ox1aw8uGzWVJZLWYo0bgrFkbSAjZB57iqU+gTSRNZ/21am3vjYPqDNY3BdXtggIjO3BVtg+9yMnrXyjqer/ABa1xh/ams6paRsNwhj/AHCAeyjtVOLQPFIPmf27qAfrkTt/jXu4XhiGJhzQnf0t/mfO1+Ma1Cb1Svb8LW3T7Lr0PrCLw5rq61b3drqsOpXsV/dXu6TUmXzGaJ/JxA4AjbcwU7eo61X0rR768sdM0a4gNlp3h/SXmu7jV9N3xfa3O5vkfG4IAxBBxkjrXgHhO6+LkF/Fp2hatfavK/3bKYeeHA5PytkYx3r0fw18Zp4vP8KfEbRJLCKTdbXCTo7Wz84ZWU/NHz3Q4H9w1y4vherQb5Hd726/1od+F40+sJe1SttdLbe+j0vaTtpZJnrnh/XfDnj7Q7bw74o0uCW5l083sqNFtijiDlUcHOYmZcMBngHrXKeJNF1v4bGCc3N/q/hGB91vdxEG/wBELfxI3R4umVPysOCB1MPiPRy+j6jqGgyfa9Avyt3qVlbjddtEqhUijkBIe3JAGR90ZB6EDb+G3xAkljbTfE7Wz2U8v2eG5wPKMrkKLSJMZkRV4Lc8n0rysNj6mFn7GstPP8/L1+T8/Vx+R0cfReMwL07LddbednfTtZpvW3d+B/FiaxFHaXc1tJdtD58Fxb58i+gzjzos8jB4dDyjcHIIJ6sMDzXzSlxpvh7VTd6DfTQeEbrU3jtp3QhtD1FSQG2nnyJBwVONyEg8jn3bwlrp1bTy1xCLa9t5Gt7233bvJmXG5Qe6nIZT3VlPeu2vSjZVaTvF7f1/X5Hz9N1ac5UK6tOOjX9f1+J0LHiimAgjNFcpuTV4T8VdVvvEN7aeHdGmZL/xRN9nikXrb6bGx3Sf8DYM+e4CCvXPGtxNB4duIrV9l1dslpA2fuvKwjDfhu3fhXkPw6vLS7+KGv8AiprV5NOs3XRdNZCNsEUYUFhn1+Qcf7Vbxr08JRliKjsl+b2/z+Rz1Kcq9SNGPX8v60+Z1HieafwfY6B4Y8O3a+HtLiXbPqUll58EeF+SNjnClm5JPb61jwQQeEtO1rV9dt9IttPnRJjCgSe1cxkMLtM/Mq8gCM/xEYIHTotZ0zwxr15LeabrV1oWrX8JZ5IyQJkHy5lifKMMY6gdq+fP2j/EC6n4g0z4eaWRFaJFHLcRoNqmIcQQ4HQYO8j1c1x5dCnjq3tFJOK7O/lb1/rU9rMMfHB4FUKStJ/FdWemt/Py1ei0UevDeL/E+pfFrxPJHfz39n4Wt98yxwkFio/5bSk/eJ4+g7YAAbFa+EtA8pvDo+2XDWhZ2uAZWeXjCxhOc9yy8KOprtb/AMH6do3hS1iurTT1s7iQLeXd0hYW56hgARuOAQBkDJ59K4q41CyjS21SdLC3j+wAaeiKx+05Y5DrxtAVhjHfFGd42rTxDo05NRtay63X3v8ASx8XQ/fR5pak1zLrlzp4il1p75JLQ3cyWnltMiqQNjMzDYnAJxktmvZfAcGgS6PZ6g/h211CeSIP9nmndR2yc8569K+ffC1hcakqWtrZG2kkKCZxkHjd8q/7OCB+FfTvgSA6Tp0O2CPz4rQRquMAuXVQPxOKWUZg8BGVO9lLotNk9dO+lvQvEZXKu1K2q2ur9UdbpHjTR9FsfKPhSfS47eNhCIoA4Yk9Ay5PTBOetch8Q/EWn+NNNhttR8Az6jBEodTPP9n8ljndtIycHjPWuptLy2mnvbu7ulFtIGaJZD8iQRfKZD2AZixz34x0qjpkV3fSS3Een+TYEAWwfiWQd3Yfwg9l6gdeTge1hK2HqVFUV7777fPfX+tmTiZ4ulSdOyttt+m2n9dDxzwFqHiT4bXcMl9KZdDaTLiFjI1izceYgOMr0DL0YcHnaV9O120jsEl8b6JFocVqttHDHJOzPHpbHkyQRAYlEu9WXoeeR1AvaloWn3CPFc2SkMCGQ5AIPtXOeAYktb/U/h9qsrGzZB9iduqwO+Y2HvFMVI9nfsK6s6w1PGU3Vpq0kbcLZtVwOIVKu7wlo/S/9fk002jqfh14bstf8G67aa3Yakr6y5+0XOoECa7AA2zhB9zDHgdsCsX4a6vf6Lq503V5P9N025TQ9UJP+tXk2Vz/AOhQk9w0fpXV+GtL0LwteT6ve6xf65rfk7Li6kZnZlOCQo+6F4BwK4/4h+Rd/EWyvbVGt7fxHay6LM+R/wAfCgPbSH0YOE/Kvnspx+HqXwfOnKzdlrtv+G/nY+iz2nKWIeMgna6V2rb7Wu27X28r6LY91tZg6AiiuZ8Ba1/bGgWOoMNr3ECu6/3XI+Yfg2R+FFXJOLsznTTV0TfEm+Np/ZzgD/RxdXx/7Y20hH/jzqfwryn4UWlxa/D/AEyVCjyXdu85j+6WklkZwxY+yoB+PevQPjUxWxn2/e/sDVMfXZD/AEzXIeBYoV8HaMI55FZtNsy3Q7QIxtCjsCQ3P+0T2FePxVJxyuCXWS/U6cnV8dO/SP52L1s6z39xPbSERTTYad2y8/OxsccIPMwPofqfnXwxez6h8QfEniq9sWntr2+ZIGPI2RsQBjuBX0RaiZobp54wlznPlr0th8uyPA4HGM+4+leEfCTV/s/g17DULSLUbQzzN5RGHjPmNznB49+K8vLcRPCZKqkI3cp6/d93T0Mc/wAS6ONi+y6npOg+KtPltJ9L1mJbjTrkY2GMN5Z7gqeqnrjqDXC6/wDD/Qk1y9lsZ4ntw0flJ5hYIjIGynovI9K0LSyub7FzZ6HqDWrH902RuX8W25/LNcvJeahJfaxJaSu0kkv2GycyKBJIQIweTxg7jnp8tehRziNaFp6NddLr8zzaNWjUlzuLjf7u+n3HoHwo8MW8jsx2KgG8yY5QHouO5I/D3r1S40nTlttsMs8UgHyyBwSD64xj3+teOeHpfEvg3SEiNgixKiqSzEoSB1+XPv6Vaf4kaiu2S4tYREB84VmBOemCRXyOZ0Mbiqrnh6seXprr+R9DQzLL4RSnKz9DrJrmO1vnhvPKZYmXZCVZkYqPkJRcs4UfdQcA5ZmyeN6x8VBbyCyvVjtBgbpLtgs0uRxiNMhM+hJPtXnH9v8AiG4WW/stGkt/MQA3DA7SBnBzJsBxk+31rjoLPxDqupzBZb2Qkl5bhSoAJ7lwx/mK+hyzMZYSilWqJyW9np/X/DbHlZhicFOb5b26aanqnxJ+IlrYXC6dp8vmTrzII13v/ugdj/Ida870XV9TvvHWlaxdpNElxObFy3RVlBQAemCQeeciqa6cmjzK+taY88RfEKLdBRIRzl9oJbuT29TUmrazfatrGlxCNdPtba/t/JtFX5mO8fMemAO2Bjn8a9DBZ3UxGOpxjrGTs9dLPTQ8atioez5YR5dt1q7O/l+p7heymS8e5lnwZ0iugyNhotygn8N2c1wvxJEtt4Xl1FZFFzpmoW1+VBztbzcDBHtiuzlb95biK3O77Gm5iMiTltqAHg/L/P3ri/ic1v8A8IZ4ljy7OIAzOcffLphD/urjn/GvmsntR4jhGO3tGvk9Py/To9PvMxvUyibf8l/u1/r/AIB6J8NrgRXOr2KHEdvqtyIx6I7+ao/KQUVi/DeY/wDCQawuTzcQk/X7JBn9aK/Qq2k2fO0vgR3/AMUrE3g01F/5elvNPP8A22tZNv8A48ij8a8z+Gl1bXPw/wBE8yAM6WOycAHLeTI0eD7gKMD2r2P4g280vha5uLSPzLqxZL6Be7PC4k2j/eClf+BV434NZdP1vxF4Zs8PbQXw1axZT/y5XKBg6+uG2D/gVebn+HeJymfLvBqXyW/5/h2NcvqKjmEb7STXz6fkzd00hLm7h80OYyJpH2kea5PmFcduFUV414Hvh4Z1rX/Ct4DHDaanMI5cYVlc7lz6gg9f/wBdezuWt7+O5CRhdrzSkZKSOWULn3wBxXF/EHTtB0DxAfE+shVs7+GGze1NtLI0kuT5DK6MFTgFCzcZQ+tfHZdUhiMprYVq7i1OKSvfppa/T9PU7M/wNSvXpzptJvTXb+mc74iv4tHeWXRJ2N+8ZIs4zlWJGF9lySMfQ4rD0nR5Ly60+x1F47S206DYIpg2TMV5kC8McZPXb949a77S7a3tJbqaDw+llMkhbyRdrI0QwONrjZGGHO3eCc9fTVEVtIiT/wBm5lSXPkiEMB8uCygM3GD2JHtmvnZ5xGhT5Ix1fXS+q/r8TGlw1ikrScVHrvZ/qv8Ag+Zwuo+GDaNDdi9i1aHYcrvMSnB6FlORjjjcOverFxNplzpsH9g+FrSd5IXkzLhBGUIVzv4Z+TwQemckYrqb/SEvvD9xZQw20enXEL27bcZkbjHJwcjuCCeBWfFbQ2em3OiRuxt51mhsgrKwP7vLBe4k+9nk7sHjiuWOaSlBObd09tk1526nW+GIwq8sPgktdnyy9X0eu/3HN2nh79yTeaiXkY7hFGu+KM+gLHJ/D8zV3XdTvNI+H7XRu7aYeeP7NFrGNsjsfLw6jgBSGJPTkZPWqsFtYx2lrpWo3l3KlvImj3LRrn7TNKEKzEtkrtRjweM4PtXQWcOhQ6JYSTLbQ6bbwMkcDJuSUhVKyLjknJZgAOWweMV018WpuN9VddNLLX8dPkzHK+Hp0pTlU091re+ui1+9/cZ2q2OpaYNO0LTmsbzxNeK6aheFyZkj3/MVGMJEoVV7ZJOAck0zWktobrS7i+uZ3ktXWe0hG0te3CqXJJzxEuACV3ZY4B/iLrS7gudVv9W0d5LueOL7POLdbeKKFmDOd8jsFLKhVdzsw3SOcGqXgAQanBbarpugS20ELtJcSTGGaSRVfCgSYLMGkUncXwfLYgAYr0ss9sqyxCTtDVtdL3+7y09D0a2WYVLkktdop/npvfrdnpUzM928P2oboIYoFGCVj2pySPUkE/lXD/EyYT+GJ7GC38s6ldQ29unO7DyAlj67v0AFdbCPKtyoSMSJmQkyEIjbs5Zu+M5PriuI8TajKviXT45y0yaPFJrc24cySBQsI9t0hQAe9epwlSni83WJa+Hmm/xt971Xr16PPpxo4B0V9q0f8/uR3Pw2Ky63q9xGcxy6nPsPqqN5S/pHRVn4T6c9lp1vbyHc8Uaq7f3n6sfxYk0V99UfNJtHz1NWikz3FulfPnj+yl8I69BrFtE7LoWYZ41+9Po9wx2kepgkLJ7AIe9fQRJNcv4+0OTVLFLqyhhl1C0D+VHKcR3MbjbLbuf7ki8Z7MFbtW1CcU3GavF6P5mOIpuUVKO61Rwky232cRRXqzo6ROk4yY5VOGD47ZHP51Xv7Sy1XT7zR9TtzPBcGSLa3+rAOMqSMlc4Uhv4WVW7EHmfDl7H4auI/D0ksg0e+dv7AvbkbXt3DHfYXGfuurEgZ789G473R9Jn1PUJrSREjFvODeHDo5DqcqPRunQ8Zr4HEZPjcqzSLw2qbvF9LN6p+ivfr53sfR0Mfh8fg2q2+zXn5evQ8i1nVbT4eTCx15dcgs/mSHVfPmnLsoBKyLnbFJnA8sLjHzbypBMWg6pbyR2V5JqzWJmJktrLMfmXSdQ+yOPC57gEHv6V6T4w1LSNfis7FNHgm0ySKRfMLpJ9ttoyI12KWXLJIQCrFXXPyHORXL3fw+u/BsM8bJdzaHNEyJAwd/su7k+VMm1kz6Pswe561pm/D2HrUZ18Gve6x3v/AINPweltmtDfD4zE4ScKOMXuy2admrPaWv8AwfxKuuRKsccupnVNM+1S+UXUFwFPWM4CvGGweg69etI2kaaZbCOFEFutz9oV45BsBEbAOM9MFieO/rXLWNxeaXdreXGmeJdNtlXykMha7jmUD5ZHZd6iTr8yk8HnPWr+neJ7CKGZjqkczNN5iq8OyRc9VICgNg87up5zXxuI4fzWhZQoz/8AAX19E1p6/cdzzXD04uUKsWusbpP5ap/JkGu3UlvqD2unOjXCwMlzIyAPcykLErNjjfnnPTBOO1XtZvI7W0GkeH5LZJYvKtQJcSR29rGpG+dyQEjIUsVHLgAEgEVgTJqmo6y17aaTeyWm9CHZfKRQrM333wo5I79q6vw18JtV8SS21xrSqbeMAhQXjt3P9524Mp9kGP8ApoK+gy/hXGVuV117ONtXLf8A8B0b7dF5nkQz2jzVJJczu0rdumr9fXQ5G00GX4ianBbxveXfh+GVmkEkaRfa5+rsgUH+HGXYsI0PQHap9UW1srS0WwsS6RQIrNtj8qKV+FXC9fLUAKq9AFGckmu18OjwvoNzp2i20azxavbvFBqKBPIkZD/x7Lt4T+Jgo4JB5LZNYfjDRJtIvAYY0lt5CPs7tuYxhR90j+Ijk5JxgV6ufYarTwsMPglemnr3bdrN+vkb4FtV3Wxek2tOyWqdvSzv8zmdZ1Cyht5HubrbHD5ksrZzACOQB03NwBjoCa4zw9BcajdJLeK32q/kj1K7B6xwJkWkJ92OZSPRU9aZrWoLr9wiyQm70yzn8vap2nU7rqsCY4EagZcjgKCTyRXd+BtFmaYyXMguLqaQz3cwXAkkOOg7KAAqjsqgV9HkmVf2PguSf8WdnLy7R+XXzt2Z4WPxn9o4nmj8EdvPu/nsvK/c9A8FWXkWiEjk80V0GlW4iiUY6Ciusg6g0xxnOaUmkpgec/ErwZFqUF5c29gl7HeKP7R08uEF3tGFljY8R3CD7r9GHytxgjjvCfji68J2Y03xRPcat4XZjawa0I2W4szjH2e8j+9G4HGevcEjGPcpkDKc1xfi3wlDfzyahZSGx1Fo/KedI1dZ0/55zRt8sqezcjsRXZSxEXH2dVXX9f1+jOSrQkpe0pO0v6/r9UcVrfw+06Lw/Z6j4X+1eILT7RbhUF0knl2aSeYyQ5wDlgucnJ71m2vjbxZ4Uae1k0r7Rb2UE9/e2hlH+hieTNvEZDyAoycDJO7ArPl0zWvBV5LdaNdzeF2Zt0ghR7zR5z6tHzJb/iGUdmraPxAmvdJePxl4E/tOwl2iXUdCkW9tn2kMpIU7lwRnBPFctXKb+9hpfkv+H+Tfoe9huJ3ZUswp86vdt3fr+F7aLWzu7Gl4pmv/AO2NHuLnRtO0qG6ItpLllDwTzPHvVvkKSqBtYAk/UdDVjSNY8FalE00eka6AbOS8tS0syi9ijIDmIeb2JHDY4OaxU8WfCjWdYgvbvxheRRwTPPHp2oPIkUUrgqzBSOOCeM4GTgChV+GpsbayuviJZXGn2tlcWEMZnRXW3mC/LuUZJXbwTz61DwuPhJ2i/wASo43JatOKqSSaXS3m++r2Tu+9rCeD9duRFr15omh2GsXVpctcBLmSIPbW5j3qiSR795OGA54I561W8aa34v8AEBXT7SWP7FqOl3F9ZvjZHcw4jljG7PyTxEEZzg4HTdxa0Hxp8MPCV1JPb+KpNWupbZLV1trbeZFQts+VFAzhsZ7jFUtR+JtzY6LFZeFvCMOiaZECkF3r0ot4kU/3Iz8zdegzUrK8VUilUbXrp+f/AATZcQ5fha7qYakpNWtpfpr6We22j11s1ctbbwzqmkS6tJ4mFn4ejuYtQv7BwFSO8MYffHIDuAYtuwvVgfeue+InxBu/GVsthp4vLDw3MxRXRcXurkdUhU/dT1c/KByT2rlLXSJdSvWvWgXUJpJPMNxd2v2exjb+9FajDSH0L7V9jXb+HPDLm5e5LTXN3MAs13PguwHRRgAKo7IoCj0rupQo4Naaz7/5f8H5JbniY/F1sxqe9dU1snq/m1a9/wAdLt2M/wAK6BM00MksEKTrH5MEEOTDZxZz5aZ5JJ5Zzy59AAB694b0lLSBVC89z61HoGiR2qLhct3Jrp7eEIOlcs5ObvIUYqKsiSBNqiipkHtRUjNHpSZ96KKAENQyoCOaKKaAzL/T45gcrzXC658PdJuLtr2C2NpeH/l4tHaCX/vqMgn8aKKqMpR1TFKKlujmtU8Ga7yq69d3K/3b6CC7/WWMt+tYcngzVlbJ/sj6jQLTP/oP9KKK1WIqLZ/kZujB7omg8La2PlOrahEh6raLFaD/AMgop/Wr2leBIYbn7Ston2g9biQmSU/8DYlv1oorOVWb6lqnFdDrNM8LRoQ0g3H3rqLDTI4FAVAPwooqEUakMIUDAqwq47UUUgH9qKKKqOw0f//Z" alt="โลโก้"></div>
     <div class="header-text">
       <div class="header-org">เทศบาลตำบลบ้านแป้น &middot; จังหวัดลำพูน</div>
       <h1 class="header-h1">ระบบจองห้องประชุมออนไลน์</h1>
       <div class="header-sub">สำนักปลัดเทศบาลตำบลบ้านแป้น</div>
     </div>
-    <div class="header-date" id="hdrDate"></div>
+    <div id="hdrDate" style="font-size:12px;color:var(--bark);text-align:right;flex-shrink:0;"></div>
   </div>
 </header>
 
 <div class="action-bar">
   <div class="action-inner">
     <a class="act-btn primary" href="#cal-section">
-      <div class="act-icon">📅</div>
-      <div><span class="act-title">ดูวันว่าง</span><span class="act-sub">กดวันในปฏิทินเพื่อดูรายละเอียด</span></div>
+      <span class="act-icon">📅</span>
+      <span><span class="act-title">ดูวันว่าง</span><span class="act-sub">กดวันในปฏิทินดูรายละเอียด</span></span>
     </a>
     <a class="act-btn" href="#form-section">
-      <div class="act-icon">📋</div>
-      <div><span class="act-title">จองห้องประชุม</span><span class="act-sub">กรอกแบบฟอร์ม</span></div>
+      <span class="act-icon">📋</span>
+      <span><span class="act-title">จองห้องประชุม</span><span class="act-sub">กรอกแบบฟอร์ม</span></span>
     </a>
   </div>
 </div>
@@ -179,20 +147,20 @@ body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-
 
   <div class="stats-row">
     <div class="stat-card"><div class="stat-num">3</div><div class="stat-lbl">ห้องประชุมทั้งหมด</div></div>
-    <div class="stat-card"><div class="stat-num" id="statToday">-</div><div class="stat-lbl">การจองวันนี้</div></div>
-    <div class="stat-card"><div class="stat-num" id="statFree">3</div><div class="stat-lbl">ห้องว่างอยู่</div></div>
-    <div class="stat-card"><div class="stat-num" id="statPending">-</div><div class="stat-lbl">รอการอนุมัติ</div></div>
+    <div class="stat-card"><div class="stat-num" id="stToday">0</div><div class="stat-lbl">การจองวันนี้</div></div>
+    <div class="stat-card"><div class="stat-num" id="stFree">3</div><div class="stat-lbl">ห้องว่างอยู่</div></div>
+    <div class="stat-card"><div class="stat-num" id="stPend">0</div><div class="stat-lbl">รอการอนุมัติ</div></div>
   </div>
 
-  <section class="rooms-section">
+  <section style="margin-bottom:20px;">
     <div class="sec-lbl">สถานะห้องประชุมวันนี้</div>
     <div class="room-card">
       <div class="room-top">
         <div class="room-info">
           <div class="room-icon" style="background:var(--terrlt)">🏛️</div>
-          <div><div class="room-name">ห้องประชุมสภา</div><div class="room-cap">👥 รองรับ 30 คน</div></div>
+          <div><div class="room-name">ห้องประชุมสภา</div><div class="room-cap">👥 30 คน</div></div>
         </div>
-        <span class="badge badge-free" id="badge1">ว่างอยู่</span>
+        <span class="badge badge-free">ว่างอยู่</span>
       </div>
       <div class="slots">
         <div class="slot free" onclick="quickBook('ห้องประชุมสภา','08:30','12:00')">08:30–12:00 ว่าง</div>
@@ -203,9 +171,9 @@ body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-
       <div class="room-top">
         <div class="room-info">
           <div class="room-icon" style="background:var(--sagelt)">🏟️</div>
-          <div><div class="room-name">ห้องศาลาประชาคมเมือง</div><div class="room-cap">👥 รองรับ 100 คน</div></div>
+          <div><div class="room-name">ห้องศาลาประชาคมเมือง</div><div class="room-cap">👥 100 คน</div></div>
         </div>
-        <span class="badge badge-free" id="badge2">ว่างอยู่</span>
+        <span class="badge badge-free">ว่างอยู่</span>
       </div>
       <div class="slots">
         <div class="slot free" onclick="quickBook('ห้องศาลาประชาคมเมือง','08:30','12:00')">08:30–12:00 ว่าง</div>
@@ -216,9 +184,9 @@ body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-
       <div class="room-top">
         <div class="room-info">
           <div class="room-icon" style="background:var(--goldlt)">🏢</div>
-          <div><div class="room-name">ห้องประชุมเล็ก</div><div class="room-cap">👥 รองรับ 10 คน</div></div>
+          <div><div class="room-name">ห้องประชุมเล็ก</div><div class="room-cap">👥 10 คน</div></div>
         </div>
-        <span class="badge badge-free" id="badge3">ว่างอยู่</span>
+        <span class="badge badge-free">ว่างอยู่</span>
       </div>
       <div class="slots">
         <div class="slot free" onclick="quickBook('ห้องประชุมเล็ก','08:30','12:00')">08:30–12:00 ว่าง</div>
@@ -231,14 +199,22 @@ body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-
     <div class="sec-lbl">ปฏิทินการจอง</div>
     <div class="cal-card">
       <div class="cal-head">
-        <button class="cal-nav" id="prevBtn">&#8249;</button>
-        <span class="cal-month" id="calTitle"></span>
-        <button class="cal-nav" id="nextBtn">&#8250;</button>
+        <button class="cal-nav-btn" id="btnPrev">&#8249;</button>
+        <span class="cal-month-txt" id="calMonthTxt"></span>
+        <button class="cal-nav-btn" id="btnNext">&#8250;</button>
       </div>
-      <div class="cal-tip">💡 กดที่วันในปฏิทินเพื่อดูรายละเอียดว่าใครจองบ้าง</div>
-      <div class="cal-grid">
-        <div class="cal-dow"><span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span></div>
-        <div class="cal-days" id="calDays"></div>
+      <div class="cal-tip">💡 กดที่วันเพื่อดูรายละเอียดว่าใครจองบ้าง</div>
+      <div class="cal-body">
+        <div class="cal-dow">
+          <div class="cal-dow-cell">อา</div>
+          <div class="cal-dow-cell">จ</div>
+          <div class="cal-dow-cell">อ</div>
+          <div class="cal-dow-cell">พ</div>
+          <div class="cal-dow-cell">พฤ</div>
+          <div class="cal-dow-cell">ศ</div>
+          <div class="cal-dow-cell">ส</div>
+        </div>
+        <div class="cal-grid-days" id="calGrid"></div>
       </div>
       <div class="cal-legend">
         <div class="leg"><div class="leg-dot" style="background:var(--terr)"></div>วันนี้</div>
@@ -249,83 +225,53 @@ body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-
     </div>
   </section>
 
-  <!-- DAY DETAIL PANEL -->
   <div class="day-panel" id="dayPanel">
     <div class="day-panel-head">
-      <span class="day-panel-title" id="dayPanelTitle">รายการจองวันที่ ...</span>
-      <button class="day-panel-close" id="closeDayPanel">✕</button>
+      <span class="day-panel-title" id="dayTitle">รายการจอง</span>
+      <button class="day-close" id="dayClose">✕</button>
     </div>
-    <div class="day-panel-body" id="dayPanelBody"></div>
+    <div class="day-body" id="dayBody"></div>
   </div>
 
-  <section class="form-section" id="form-section">
+  <section id="form-section">
     <div class="sec-lbl">แบบฟอร์มขอใช้ห้องประชุม</div>
     <div class="form-card">
       <div class="form-title">📋 กรอกรายละเอียดการจอง</div>
       <div class="msg" id="formMsg"></div>
-      <div class="fg">
-        <label class="fl">ชื่อผู้ขอใช้ห้องประชุม *</label>
-        <input class="fi" type="text" id="fName" placeholder="ชื่อ – นามสกุล">
-      </div>
+      <div class="fg"><label class="fl">ชื่อผู้ขอใช้ *</label><input class="fi" type="text" id="fName" placeholder="ชื่อ – นามสกุล"></div>
       <div class="row2">
-        <div class="fg">
-          <label class="fl">เบอร์โทรศัพท์ *</label>
-          <input class="fi" type="tel" id="fTel" placeholder="0xx-xxx-xxxx">
-        </div>
-        <div class="fg">
-          <label class="fl">กอง / สำนัก *</label>
+        <div class="fg"><label class="fl">เบอร์โทรศัพท์ *</label><input class="fi" type="tel" id="fTel" placeholder="0xx-xxx-xxxx"></div>
+        <div class="fg"><label class="fl">กอง / สำนัก *</label>
           <select class="fi" id="fDept">
             <option value="">-- เลือกหน่วยงาน --</option>
             <option>สำนักปลัดฯ</option>
-<option>กองคลัง</option>
-<option>กองช่าง</option>
-<option>กองยุทธศาสตร์และงบประมาณ</option>
-<option>กองสาธารณสุขและสิ่งแวดล้อม</option>
-<option>กองการศึกษา</option>
-<option>กองสวัสดิการสังคม</option>
-<option>งานป้องกันและบรรเทาสาธารณภัย</option>
-<option>หน่วยงานภายนอก</option>
+            <option>กองคลัง</option>
+            <option>กองช่าง</option>
+            <option>กองยุทธศาสตร์และงบประมาณ</option>
+            <option>กองสาธารณสุขและสิ่งแวดล้อม</option>
+            <option>กองการศึกษา</option>
+            <option>กองสวัสดิการสังคม</option>
+            <option>งานป้องกันและบรรเทาสาธารณภัย</option>
+            <option>หน่วยงานภายนอก</option>
           </select>
         </div>
       </div>
       <div class="fg">
         <label class="fl">ห้องที่ต้องการจอง *</label>
         <div class="room-sel-row">
-          <div class="room-sel" id="rs1">
-            <div class="rs-name">🏛️ ห้องประชุมสภา</div>
-            <div class="rs-cap">30 คน</div>
-          </div>
-          <div class="room-sel" id="rs2">
-            <div class="rs-name">🏟️ ศาลาประชาคมเมือง</div>
-            <div class="rs-cap">100 คน</div>
-          </div>
-          <div class="room-sel" id="rs3">
-            <div class="rs-name">🏢 ห้องประชุมเล็ก</div>
-            <div class="rs-cap">10 คน</div>
-          </div>
+          <div class="room-sel" id="rs1"><div class="rs-name">🏛️ ห้องประชุมสภา</div><div class="rs-cap">30 คน</div></div>
+          <div class="room-sel" id="rs2"><div class="rs-name">🏟️ ศาลาประชาคมเมือง</div><div class="rs-cap">100 คน</div></div>
+          <div class="room-sel" id="rs3"><div class="rs-name">🏢 ห้องประชุมเล็ก</div><div class="rs-cap">10 คน</div></div>
         </div>
       </div>
-      <div class="fg">
-        <label class="fl">วันที่ขอใช้ *</label>
-        <input class="fi" type="date" id="fDate">
-      </div>
+      <div class="fg"><label class="fl">วันที่ขอใช้ *</label><input class="fi" type="date" id="fDate"></div>
       <div class="row2">
-        <div class="fg">
-          <label class="fl">เวลาเริ่ม *</label>
-          <input class="fi" type="time" id="fStart" value="09:00">
-        </div>
-        <div class="fg">
-          <label class="fl">เวลาสิ้นสุด *</label>
-          <input class="fi" type="time" id="fEnd" value="12:00">
-        </div>
+        <div class="fg"><label class="fl">เวลาเริ่ม *</label><input class="fi" type="time" id="fStart" value="09:00"></div>
+        <div class="fg"><label class="fl">เวลาสิ้นสุด *</label><input class="fi" type="time" id="fEnd" value="12:00"></div>
       </div>
-      <div class="fg">
-        <label class="fl">อีเมล (รับใบยืนยัน)</label>
-        <input class="fi" type="email" id="fEmail" placeholder="example@email.com">
-      </div>
-      <div class="fg">
-        <label class="fl">หมายเหตุ / สิ่งอำนวยความสะดวก</label>
-        <textarea class="fi" rows="3" id="fNote" placeholder="เช่น จัดโต๊ะแบบโรงเรียน, โปรเจคเตอร์, ไมล์ลอย ฯลฯ" style="resize:vertical"></textarea>
+      <div class="fg"><label class="fl">อีเมล (รับใบยืนยัน)</label><input class="fi" type="email" id="fEmail" placeholder="example@email.com"></div>
+      <div class="fg"><label class="fl">หมายเหตุ / สิ่งอำนวยความสะดวก</label>
+        <textarea class="fi" rows="3" id="fNote" placeholder="เช่น จัดโต๊ะแบบโรงเรียน, โปรเจคเตอร์ ฯลฯ" style="resize:vertical"></textarea>
       </div>
       <button class="submit-btn" id="submitBtn">📨 ส่งคำขอจองห้องประชุม</button>
     </div>
@@ -335,195 +281,188 @@ body{font-family:"Sarabun",sans-serif;background:var(--sand);color:#3A2C1E;font-
 
 <footer class="footer">
   ระบบจองห้องประชุมออนไลน์ &middot; สำนักปลัดเทศบาลตำบลบ้านแป้น จ.ลำพูน
-  &nbsp;|&nbsp; <a href="https://script.google.com/macros/s/AKfycbz6dh1I_QhNxxD_zfjsOK9GDys2OuhFE0efUtcWSOkGSXSqvhQAakM9wEoa8dQtLSg/exec" style="color:var(--dust)" target="_blank">Admin</a>
+  &nbsp;|&nbsp; <a href="https://script.google.com/macros/s/AKfycbz6dh1I_QhNxxD_zfjsOK9GDys2OuhFE0efUtcWSOkGSXSqvhQAakM9wEoa8dQtLSg/exec" target="_blank" style="color:var(--dust)">Admin</a>
 </footer>
 
 <script>
-var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6dh1I_QhNxxD_zfjsOK9GDys2OuhFE0efUtcWSOkGSXSqvhQAakM9wEoa8dQtLSg/exec";
-var allBookings = [];
-
-var now = new Date();
-var days = ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"];
+var SU = "https://script.google.com/macros/s/AKfycbz6dh1I_QhNxxD_zfjsOK9GDys2OuhFE0efUtcWSOkGSXSqvhQAakM9wEoa8dQtLSg/exec";
+var allBk = [];
+var calY, calM, selRoom = 0;
 var mons = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"];
+var dayNames = ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"];
 
-document.getElementById("hdrDate").textContent = "วัน" + days[now.getDay()] + "ที่ " + now.getDate() + " " + mons[now.getMonth()] + " " + (now.getFullYear()+543);
+// วันนี้
+var now = new Date();
+calY = now.getFullYear();
+calM = now.getMonth();
+var todayY = now.getFullYear();
+var todayM = now.getMonth();
+var todayD = now.getDate();
+var todayStr = todayY + "-" + String(todayM+1).padStart(2,"0") + "-" + String(todayD).padStart(2,"0");
 
-var y = now.getFullYear(), mo = String(now.getMonth()+1).padStart(2,"0"), d = String(now.getDate()).padStart(2,"0");
-document.getElementById("fDate").value = y + "-" + mo + "-" + d;
+document.getElementById("hdrDate").textContent = "วัน" + dayNames[now.getDay()] + "ที่ " + todayD + " " + mons[todayM] + " " + (todayY+543);
+document.getElementById("fDate").value = todayStr;
 
-// โหลดข้อมูลจาก Apps Script
-function loadBookings() {
-  // ใช้ JSONP เพื่อหลีกเลี่ยง CORS
-  var oldScript = document.getElementById("jsonp_cal");
-  if (oldScript) oldScript.parentNode.removeChild(oldScript);
-  var s = document.createElement("script");
-  s.id = "jsonp_cal";
-  s.src = APPS_SCRIPT_URL + "?action=list&callback=receiveBookings&t=" + Date.now();
-  document.head.appendChild(s);
-}
+// ===== CALENDAR =====
+function buildCal() {
+  var txt = mons[calM] + " " + (calY + 543);
+  document.getElementById("calMonthTxt").textContent = txt;
 
-function receiveBookings(data) {
-  allBookings = (data.bookings || []).filter(function(b) { return b.status !== "rejected"; });
-  updateStats();
-  renderCal();
-}
-
-function updateStats() {
-  var todayStr = y + "-" + mo + "-" + d;
-  var todayCount = allBookings.filter(function(b) { return b.date === todayStr; }).length;
-  var pendingCount = allBookings.filter(function(b) { return b.status === "pending"; }).length;
-  document.getElementById("statToday").textContent = todayCount;
-  document.getElementById("statPending").textContent = pendingCount;
-}
-
-// CALENDAR
-var calY = now.getFullYear(), calM = now.getMonth();
-
-function getBookingsForDate(dateStr) {
-  return allBookings.filter(function(b) { return b.date === dateStr; })
-    .sort(function(a, b) { return a.ts < b.ts ? -1 : 1; });
-}
-
-function renderCal() {
-  document.getElementById("calTitle").textContent = mons[calM] + " " + (calY+543);
-  var first = new Date(calY, calM, 1).getDay();
-  var dim = new Date(calY, calM+1, 0).getDate();
+  var firstDay = new Date(calY, calM, 1).getDay();
+  var daysInMonth = new Date(calY, calM + 1, 0).getDate();
+  var grid = document.getElementById("calGrid");
   var html = "";
-  for (var i = 0; i < first; i++) html += "<div class='cd empty'>·</div>";
-  for (var dd = 1; dd <= dim; dd++) {
-    var dateStr = calY + "-" + String(calM+1).padStart(2,"0") + "-" + String(dd).padStart(2,"0");
-    var dayBookings = getBookingsForDate(dateStr);
-    var isToday = dd === now.getDate() && calM === now.getMonth() && calY === now.getFullYear();
-    var cls = "cd";
-    if (isToday) cls += " today";
-    else if (dayBookings.length >= 3) cls += " booked";
-    else if (dayBookings.length > 0) cls += " partial";
-    else cls += " cfree";
-    var count = dayBookings.length > 0 ? " (" + dayBookings.length + ")" : "";
-    html += "<div class='" + cls + "' data-date='" + dateStr + "' data-dd='" + dd + "' title='" + (dayBookings.length > 0 ? "มีการจอง " + dayBookings.length + " รายการ" : "ว่าง") + "'>" + dd + "</div>";
-  }
-  document.getElementById("calDays").innerHTML = html;
 
-  // ผูก event กดวัน
-  document.querySelectorAll(".cd[data-date]").forEach(function(el) {
+  for (var e = 0; e < firstDay; e++) {
+    html += "<div class='cal-day empty'></div>";
+  }
+
+  for (var dd = 1; dd <= daysInMonth; dd++) {
+    var ds = calY + "-" + String(calM+1).padStart(2,"0") + "-" + String(dd).padStart(2,"0");
+    var bk = allBk.filter(function(b){ return b.date === ds; });
+    var cls = "cal-day";
+    var isToday = (dd === todayD && calM === todayM && calY === todayY);
+    if (isToday) cls += " today";
+    else if (bk.length >= 3) cls += " has-booking";
+    else if (bk.length > 0) cls += " has-partial";
+    else cls += " is-free";
+    var tip = bk.length > 0 ? "มีการจอง " + bk.length + " รายการ" : "ว่าง";
+    html += "<div class='" + cls + "' data-ds='" + ds + "' data-dd='" + dd + "' title='" + tip + "'>" + dd + "</div>";
+  }
+
+  grid.innerHTML = html;
+
+  // ผูก click
+  grid.querySelectorAll(".cal-day[data-ds]").forEach(function(el) {
     el.addEventListener("click", function() {
-      document.querySelectorAll(".cd").forEach(function(x) { x.classList.remove("selected"); });
+      grid.querySelectorAll(".cal-day").forEach(function(x){ x.classList.remove("selected"); });
       this.classList.add("selected");
-      showDayDetail(this.getAttribute("data-date"), this.getAttribute("data-dd"));
+      showDayPanel(this.getAttribute("data-ds"), this.getAttribute("data-dd"));
     });
   });
 }
 
-function showDayDetail(dateStr, dd) {
+document.getElementById("btnPrev").addEventListener("click", function() {
+  calM--; if (calM < 0) { calM = 11; calY--; }
+  document.getElementById("dayPanel").classList.remove("active");
+  buildCal();
+});
+
+document.getElementById("btnNext").addEventListener("click", function() {
+  calM++; if (calM > 11) { calM = 0; calY++; }
+  document.getElementById("dayPanel").classList.remove("active");
+  buildCal();
+});
+
+// ===== DAY PANEL =====
+function showDayPanel(ds, dd) {
   var panel = document.getElementById("dayPanel");
-  var body = document.getElementById("dayPanelBody");
-  var title = document.getElementById("dayPanelTitle");
+  var body = document.getElementById("dayBody");
+  var thDate = parseInt(dd) + " " + mons[calM] + " " + (calY+543);
+  document.getElementById("dayTitle").textContent = "📋 รายการจองวันที่ " + thDate;
 
-  var bookings = getBookingsForDate(dateStr);
-  var thDate = dd + " " + mons[calM] + " " + (calY+543);
-  title.textContent = "📋 รายการจองวันที่ " + thDate;
+  var bk = allBk.filter(function(b){ return b.date === ds; })
+    .sort(function(a,b){ return a.ts < b.ts ? -1 : 1; });
 
-  if (bookings.length === 0) {
-    body.innerHTML = "<div class='day-no-booking'>✅ ยังไม่มีการจองในวันนี้<br><small style='color:var(--dust)'>กดปุ่ม "จองห้องประชุม" ด้านบนเพื่อจอง</small></div>";
+  if (bk.length === 0) {
+    body.innerHTML = "<div class='no-booking'>✅ ยังไม่มีการจองในวันนี้</div>";
   } else {
-    var html = "<div class='first-note'>⚠️ ระบบนี้ใช้หลัก <strong>จองก่อนมีสิทธิ์ก่อน</strong> — เรียงตามเวลาที่ส่งคำขอ</div>";
-    var statusLabel = { pending: "รออนุมัติ", approved: "อนุมัติแล้ว", rejected: "ปฏิเสธ" };
-    var statusCls = { pending: "bs-pending", approved: "bs-approved", rejected: "bs-rejected" };
-    bookings.forEach(function(b, i) {
-      html += "<div class='booking-item'>";
-      html += "<div class='b-order" + (i === 0 ? " first" : "") + "'>" + (i+1) + "</div>";
-      html += "<div class='b-body'>";
-      html += "<div class='b-name'>" + b.name + "</div>";
-      html += "<div class='b-dept'>" + b.dept + "</div>";
-      html += "<div class='b-room'>🏛️ " + b.room + "</div>";
-      html += "<div class='b-time'>⏰ " + b.start + " – " + b.end + "</div>";
-      if (b.note) html += "<div class='b-note'>📝 " + b.note + "</div>";
-      html += "<span class='b-status " + statusCls[b.status] + "'>" + statusLabel[b.status] + "</span>";
-      html += "<span style='font-size:11px;color:var(--dust);margin-left:8px'>ส่งเมื่อ: " + b.ts + "</span>";
-      html += "</div></div>";
+    var sl = { pending:"รออนุมัติ", approved:"อนุมัติแล้ว" };
+    var sc = { pending:"b-status s-pending", approved:"b-status s-approved" };
+    var h = "<div class='first-note'>⚠️ <strong>จองก่อนมีสิทธิ์ก่อน</strong> — เรียงตามเวลาที่ส่งคำขอ</div>";
+    bk.forEach(function(b, i) {
+      h += "<div class='b-item'>";
+      h += "<div class='b-num" + (i===0?" first":"") + "'>" + (i+1) + "</div>";
+      h += "<div class='b-info'>";
+      h += "<div class='b-name'>" + b.name + "</div>";
+      h += "<div class='b-dept'>" + b.dept + "</div>";
+      h += "<div class='b-room'>🏛️ " + b.room + "</div>";
+      h += "<div class='b-time'>⏰ " + b.start + " – " + b.end + "</div>";
+      if (b.note) h += "<div class='b-note'>📝 " + b.note + "</div>";
+      h += "<div class='b-ts'>ส่งเมื่อ: " + (b.ts||"-") + "</div>";
+      h += "<span class='" + (sc[b.status]||"b-status s-pending") + "'>" + (sl[b.status]||b.status) + "</span>";
+      h += "</div></div>";
     });
-    body.innerHTML = html;
+    body.innerHTML = h;
   }
 
-  panel.classList.add("show");
+  panel.classList.add("active");
   panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-document.getElementById("closeDayPanel").addEventListener("click", function() {
-  document.getElementById("dayPanel").classList.remove("show");
-  document.querySelectorAll(".cd").forEach(function(x) { x.classList.remove("selected"); });
+document.getElementById("dayClose").addEventListener("click", function() {
+  document.getElementById("dayPanel").classList.remove("active");
+  document.getElementById("calGrid").querySelectorAll(".cal-day").forEach(function(x){ x.classList.remove("selected"); });
 });
 
-document.getElementById("prevBtn").addEventListener("click", function() {
-  calM--; if (calM < 0) { calM = 11; calY--; }
-  document.getElementById("dayPanel").classList.remove("show");
-  renderCal();
-});
+// ===== LOAD DATA (JSONP) =====
+window.receiveBookings = function(data) {
+  allBk = (data.bookings || []).filter(function(b){ return b.status !== "rejected"; });
+  // update stats
+  var tc = allBk.filter(function(b){ return b.date === todayStr; }).length;
+  var pc = allBk.filter(function(b){ return b.status === "pending"; }).length;
+  document.getElementById("stToday").textContent = tc;
+  document.getElementById("stPend").textContent = pc;
+  // rebuild calendar with real data
+  buildCal();
+};
 
-document.getElementById("nextBtn").addEventListener("click", function() {
-  calM++; if (calM > 11) { calM = 0; calY++; }
-  document.getElementById("dayPanel").classList.remove("show");
-  renderCal();
-});
+function loadData() {
+  var old = document.getElementById("_jsonp");
+  if (old) old.parentNode.removeChild(old);
+  var s = document.createElement("script");
+  s.id = "_jsonp";
+  s.src = SU + "?action=list&callback=receiveBookings&t=" + Date.now();
+  document.head.appendChild(s);
+}
 
-// ROOM SELECT
-var selectedRoom = 0;
+// ===== ROOM SELECT =====
 [1,2,3].forEach(function(n) {
-  document.getElementById("rs" + n).addEventListener("click", function() {
-    selectedRoom = n;
-    [1,2,3].forEach(function(i) { document.getElementById("rs"+i).classList.toggle("active", i===n); });
+  document.getElementById("rs"+n).addEventListener("click", function() {
+    selRoom = n;
+    [1,2,3].forEach(function(i){ document.getElementById("rs"+i).classList.toggle("active", i===n); });
   });
 });
 
 function quickBook(room, s, e) {
-  selectedRoom = room.includes("สภา") ? 1 : room.includes("ศาลา") ? 2 : 3;
-  [1,2,3].forEach(function(i) { document.getElementById("rs"+i).classList.toggle("active", i===selectedRoom); });
+  selRoom = room.indexOf("สภา") >= 0 ? 1 : room.indexOf("ศาลา") >= 0 ? 2 : 3;
+  [1,2,3].forEach(function(i){ document.getElementById("rs"+i).classList.toggle("active", i===selRoom); });
   document.getElementById("fStart").value = s;
   document.getElementById("fEnd").value = e;
-  document.getElementById("form-section").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("form-section").scrollIntoView({ behavior:"smooth" });
 }
 
-// SUBMIT
+// ===== SUBMIT =====
 document.getElementById("submitBtn").addEventListener("click", function() {
   var name = document.getElementById("fName").value.trim();
-  var tel = document.getElementById("fTel").value.trim();
+  var tel  = document.getElementById("fTel").value.trim();
   var dept = document.getElementById("fDept").value;
   var date = document.getElementById("fDate").value;
-  var start = document.getElementById("fStart").value;
-  var end = document.getElementById("fEnd").value;
-  var email = document.getElementById("fEmail").value.trim();
+  var s    = document.getElementById("fStart").value;
+  var e    = document.getElementById("fEnd").value;
+  var email= document.getElementById("fEmail").value.trim();
   var note = document.getElementById("fNote").value.trim();
-  var rooms = ["","ห้องประชุมสภา","ห้องศาลาประชาคมเมือง","ห้องประชุมเล็ก"];
-  var room = rooms[selectedRoom] || "";
+  var rooms= ["","ห้องประชุมสภา","ห้องศาลาประชาคมเมือง","ห้องประชุมเล็ก"];
+  var room = rooms[selRoom] || "";
 
-  if (!name || !tel || !dept || !date || !room) {
-    showMsg("error", "กรุณากรอกข้อมูลให้ครบ และเลือกห้องประชุม");
-    return;
-  }
-  if (start >= end) { showMsg("error", "เวลาสิ้นสุดต้องมากกว่าเวลาเริ่ม"); return; }
+  if (!name||!tel||!dept||!date||!room) { showMsg("error","กรุณากรอกข้อมูลให้ครบและเลือกห้องประชุม"); return; }
+  if (s >= e) { showMsg("error","เวลาสิ้นสุดต้องมากกว่าเวลาเริ่ม"); return; }
 
   var btn = document.getElementById("submitBtn");
   btn.disabled = true;
   btn.innerHTML = "<span class='spinner'></span>กำลังส่ง...";
 
-  fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "text/plain" },
-    body: JSON.stringify({ action:"booking", name:name, tel:tel, dept:dept, room:room, date:date, start:start, end:end, email:email, note:note })
+  fetch(SU, { method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain"},
+    body: JSON.stringify({ action:"booking",name:name,tel:tel,dept:dept,room:room,date:date,start:s,end:e,email:email,note:note })
   }).then(function() {
-    showMsg("success", "✅ ส่งคำขอจองเรียบร้อยแล้ว! เจ้าหน้าที่จะแจ้งผลการอนุมัติกลับมา" + (email ? " ที่ " + email : ""));
-    ["fName","fTel","fEmail","fNote"].forEach(function(id) { document.getElementById(id).value = ""; });
+    showMsg("success","✅ ส่งคำขอจองเรียบร้อย! เจ้าหน้าที่จะแจ้งผลการอนุมัติกลับมา");
+    ["fName","fTel","fEmail","fNote"].forEach(function(id){ document.getElementById(id).value=""; });
     document.getElementById("fDept").value = "";
-    selectedRoom = 0;
-    [1,2,3].forEach(function(i) { document.getElementById("rs"+i).classList.remove("active"); });
-    setTimeout(loadBookings, 2000);
-  }).catch(function() {
-    showMsg("error", "ไม่สามารถส่งข้อมูลได้ กรุณาลองใหม่");
-  }).finally(function() {
-    btn.disabled = false;
-    btn.innerHTML = "📨 ส่งคำขอจองห้องประชุม";
-  });
+    selRoom = 0;
+    [1,2,3].forEach(function(i){ document.getElementById("rs"+i).classList.remove("active"); });
+    setTimeout(loadData, 2000);
+  }).catch(function(){ showMsg("error","ไม่สามารถส่งข้อมูลได้"); })
+  .finally(function(){ btn.disabled=false; btn.innerHTML="📨 ส่งคำขอจองห้องประชุม"; });
 });
 
 function showMsg(type, text) {
@@ -531,12 +470,11 @@ function showMsg(type, text) {
   el.className = "msg " + type;
   el.textContent = text;
   el.style.display = "block";
-  el.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-// เริ่มต้น — render ปฏิทินทันทีก่อนโหลดข้อมูล
-renderCal();
-loadBookings();
+// ===== INIT — ปฏิทินแสดงทันที =====
+buildCal();
+loadData();
 </script>
 </body>
 </html>
