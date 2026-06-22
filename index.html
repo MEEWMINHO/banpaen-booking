@@ -353,13 +353,9 @@ document.getElementById("fDate").value = y + "-" + mo + "-" + d;
 
 // โหลดข้อมูลจาก Apps Script
 function loadBookings() {
-  // render ปฏิทินก่อนเสมอ ไม่รอข้อมูล
-  renderCal();
-  updateStats();
-
   // ใช้ JSONP เพื่อหลีกเลี่ยง CORS
-  var old = document.getElementById("jsonp_cal");
-  if (old) old.parentNode.removeChild(old);
+  var oldScript = document.getElementById("jsonp_cal");
+  if (oldScript) oldScript.parentNode.removeChild(oldScript);
   var s = document.createElement("script");
   s.id = "jsonp_cal";
   s.src = APPS_SCRIPT_URL + "?action=list&callback=receiveBookings&t=" + Date.now();
@@ -538,7 +534,8 @@ function showMsg(type, text) {
   el.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-// เริ่มต้น
+// เริ่มต้น — render ปฏิทินทันทีก่อนโหลดข้อมูล
+renderCal();
 loadBookings();
 </script>
 </body>
